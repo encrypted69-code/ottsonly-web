@@ -1,0 +1,4 @@
+# Code will be added manually
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
