@@ -61,6 +61,10 @@ allowed_origins = [
     settings.ADMIN_URL,         # Admin panel
     "http://127.0.0.1:4028",    # Local development - main (alternative)
     "http://127.0.0.1:3001",    # Local development - admin (alternative)
+    "https://ottsonly.in",      # Production domain
+    "http://ottsonly.in",       # Production domain (HTTP fallback)
+    "https://www.ottsonly.in",  # Production with www
+    "http://www.ottsonly.in",   # Production with www (HTTP fallback)
 ]
 
 app.add_middleware(

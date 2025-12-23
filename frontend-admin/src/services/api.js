@@ -1,5 +1,5 @@
 // API Base Configuration
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 // API Client with error handling
 const apiClient = async (endpoint, options = {}) => {
