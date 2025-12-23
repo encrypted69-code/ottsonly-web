@@ -41,6 +41,7 @@ const Registration = () => {
       const registrationData = {
         name: userData.fullName,  // Map fullName to name
         email: userData.email,
+        phone: userData.phone,
         password: passwordData.password,
       };
       

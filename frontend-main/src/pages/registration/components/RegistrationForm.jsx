@@ -8,6 +8,7 @@ const RegistrationForm = ({ onSubmit, isLoading }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    phone: '',
     referralCode: ''
   });
 
@@ -26,6 +27,12 @@ const RegistrationForm = ({ onSubmit, isLoading }) => {
       newErrors.email = 'Email address is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/?.test(formData?.email)) {
       newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData?.phone?.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!/^[0-9]{10}$/?.test(formData?.phone?.trim())) {
+      newErrors.phone = 'Please enter a valid 10-digit phone number';
     }
 
     setErrors(newErrors);
@@ -47,6 +54,7 @@ const RegistrationForm = ({ onSubmit, isLoading }) => {
       const cleanedData = {
         fullName: formData.fullName,
         email: formData.email,
+        phone: formData.phone.trim(),
       };
       
       // Only include referralCode if it has a value
@@ -83,6 +91,19 @@ const RegistrationForm = ({ onSubmit, isLoading }) => {
           error={errors?.email}
           required
           disabled={isLoading}
+        />
+
+        <Input
+          label="Phone Number"
+          type="tel"
+          name="phone"
+          placeholder="Enter your 10-digit phone number"
+          value={formData?.phone}
+          onChange={handleChange}
+          error={errors?.phone}
+          required
+          disabled={isLoading}
+          maxLength={10}
         />
 
         <Input
